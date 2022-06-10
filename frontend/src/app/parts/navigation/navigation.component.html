@@ -1,0 +1,209 @@
+<!--<nav class="navbar navbar-expand-lg navbar-dark bg-dark">-->
+<!--    <a class="navbar-brand" [routerLink]="root">-->
+<!--        <img src="/assets/brand.png" width="30" height="30" class="d-inline-block align-top" alt="">-->
+<!--        E-Shop-->
+<!--    </a>-->
+
+<!--    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"-->
+<!--            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--        <span class="navbar-toggler-icon"></span>-->
+<!--    </button>-->
+<!--    <div class="collapse navbar-collapse" id="navbarNav">-->
+
+<!--        <div class="navbar-nav" *ngIf="!currentUser || currentUser.role == Role.Customer">-->
+
+<!--            <a class="nav-item nav-link "-->
+<!--               routerLink="/category/0">-->
+<!--                Books-->
+<!--            </a>-->
+<!--            <a class="nav-item nav-link"-->
+<!--               routerLink="/category/1">-->
+<!--                Food-->
+<!--            </a>-->
+<!--            <a class="nav-item nav-link "-->
+<!--               routerLink="/category/2">-->
+<!--                Clothes-->
+<!--            </a>-->
+<!--            <a class="nav-item nav-link"-->
+<!--               routerLink="/category/3">-->
+<!--                Drink-->
+<!--            </a>-->
+
+<!--        </div>-->
+
+<!--        <div class="navbar-nav ml-auto">-->
+<!--            <a *ngIf="!currentUser || currentUser.role == Role.Customer"-->
+<!--                    class="nav-item nav-link " routerLink="/cart">-->
+<!--                <i class="fas fa-shopping-cart"></i>-->
+<!--                Cart-->
+<!--            </a>-->
+
+<!--            <ng-container *ngIf="currentUser; else noUser">-->
+<!--                <a class="nav-item nav-link " routerLink="/order">-->
+<!--                    <i class="fas fa-list-ul"></i>-->
+<!--                    Orders-->
+<!--                </a>-->
+<!--                <a class="nav-item nav-link " routerLink="/profile">-->
+<!--                    {{name}}-->
+<!--                </a>-->
+<!--                <a class="nav-item nav-link " (click)="logout()" routerLink="/login" [queryParams]="{logout: true}">-->
+<!--                    Sign Out-->
+<!--                </a>-->
+<!--            </ng-container>-->
+<!--            <ng-template #noUser>-->
+<!--                <a class="nav-item nav-link " routerLink="/login">-->
+<!--                    Sign In-->
+<!--                </a>-->
+<!--                <a class="nav-item nav-link " routerLink="/register">-->
+<!--                    Sign Up-->
+<!--                </a>-->
+<!--            </ng-template>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</nav>-->
+
+
+<div class="preloader">
+  <div class="preloader-inner">
+    <div class="preloader-icon">
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</div>
+<!-- End Preloader -->
+<!-- Header -->
+<header class="header shop">
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-5 col-md-12 col-12">
+          <!-- Top Left -->
+          <div class="text-center">
+            <ul class="list-main">
+              <li><i class="ti-headphone-alt"></i> +84 988853299</li>
+              <li><i class="ti-email"></i> thienphong251199@gmail.com</li>
+            </ul>
+          </div>
+          <!--/ End Top Left -->
+        </div>
+        <div class="col-lg-7 col-md-12 col-12">
+          <!-- Top Right -->
+          <div class="right-content">
+            <ul class="list-main">
+              <li><i class="ti-location-pin"></i> <a data-toggle="modal" data-target="#ggmap" style="cursor: pointer">Địa chỉ: 165 Xuân Thủy, Cầu Giấy Hà Nội</a> </li>
+              <ng-container *ngIf="currentUser; else noUser">
+                <li><i class="ti-user"></i> <a routerLink="/profile">{{name}}</a></li>
+                <li><i class="ti-power-off"></i><a (click)="logout()" routerLink="/login" [queryParams]="{logout: true}">Đăng xuất</a></li>
+              </ng-container>
+              <ng-template #noUser>
+                <li><i class="ti-power-off"></i><a routerLink="/login">Đăng nhập</a></li>
+              </ng-template>
+
+            </ul>
+          </div>
+          <!-- End Top Right -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="header-inner">
+    <div class="container-fluid">
+      <div class="cat-nav-head">
+        <div class="row">
+          <div class="col-lg-2">
+            <div class="">
+              <a href="#" style="color: #F7941D; font-size: 40px; font-family: fantasy" class="text-center">E-Shop</a>
+            </div>
+          </div>
+
+          <div class="col-lg-8 col-12">
+            <div class="menu-area">
+              <nav class="navbar navbar-expand-lg">
+                <div class="navbar-collapse">
+                  <div class="nav-inner">
+                    <ul class="nav main-menu menu navbar-nav">
+                      <li *ngIf="!currentUser || currentUser.role == Role.Customer"><a href="#">Shop<i class="ti-angle-down"></i></a>
+                        <ul class="dropdown">
+                          <li><a href="#">Nam</a></li>
+                          <li><a href="#">Nữ</a></li>
+                          <li><a href="#">Trẻ em</a></li>
+                          <li><a href="#">Phụ kiện</a></li>
+                        </ul>
+                      </li>
+                      <li><a routerLink="/page404">Product</a></li>
+                      <li><a routerLink="/page404">Service</a></li>
+
+                      <li><a routerLink="/page404">Pages</a></li>
+                      <li><a routerLink="/page404">Blog</a></li>
+                      <li><a routerLink="/page404">Contact Us</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+              <!--/ End Main Menu -->
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-12">
+            <div class="right-bar">
+              <!-- Search Form -->
+              <div class="sinlge-bar">
+                <a href="#"  class="single-icon"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+              </div>
+              <div class="sinlge-bar shopping">
+                <a href="#"  class="single-icon"><i class="fa fa-shopping-bag"></i> <span class="total-count">2</span></a>
+                <!-- Shopping Item -->
+                <div class="shopping-item">
+                  <div class="dropdown-cart-header">
+                    <span>2 Items</span>
+                    <a href="#">View Cart</a>
+                  </div>
+                  <ul class="shopping-list">
+                    <li>
+                      <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
+                      <a class="cart-img" href="#"><img src="https://via.placeholder.com/70x70" alt="#"></a>
+                      <h4><a href="#">Woman Ring</a></h4>
+                      <p class="quantity">1x - <span class="amount">$99.00</span></p>
+                    </li>
+                    <li>
+                      <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
+                      <a class="cart-img" href="#"><img src="https://via.placeholder.com/70x70" alt="#"></a>
+                      <h4><a href="#">Woman Necklace</a></h4>
+                      <p class="quantity">1x - <span class="amount">$35.00</span></p>
+                    </li>
+                  </ul>
+                  <div class="bottom">
+                    <div class="total">
+                      <span>Total</span>
+                      <span class="total-amount">$134.00</span>
+                    </div>
+                    <a href="#" class="btn animate">Checkout</a>
+                  </div>
+                </div>
+                <!--/ End Shopping Item -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</header>
+
+<div class="modal fade" id="ggmap" tabindex="-1" role="dialog" style="padding: 9% 5%">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="ti-close" aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.8803920616474!2d105.78117921533233!3d21.03747129285585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab355cc2239b%3A0x9ae247114fb38da3!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBTxrAgcGjhuqFtIEjDoCBO4buZaQ!5e0!3m2!1svi!2s!4v1654759708261!5m2!1svi!2s"  style="border: 2px solid #eee" class="w-100 h-100" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</div>

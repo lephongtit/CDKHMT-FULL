@@ -1,0 +1,119 @@
+<!--<h1 align="center" class="display-4 mb-5">Sign In</h1>-->
+<!--<div style="width:40%; margin: 25px auto">-->
+
+<!--    <div class="alert alert-danger" *ngIf="isInvalid">-->
+<!--        Invalid username and password.-->
+<!--    </div>-->
+<!--    <div class="alert alert-info" *ngIf="isLogout">-->
+<!--        You have been logged out.-->
+<!--    </div>-->
+
+
+<!--    <form #form='ngForm' (ngSubmit)="onSubmit()">-->
+<!--        <div class="form-group">-->
+<!--            <label>Email address</label>-->
+<!--            <input type="text" class="form-control form-control-lg" id="email" name="email" placeholder="Enter email"-->
+<!--                   required autofocus [(ngModel)]="model.username" #email="ngModel" autocomplete="email" >-->
+<!--            <div [hidden]="email.valid || email.pristine" class="alert alert-danger">-->
+<!--                Email is required-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <div class="form-group">-->
+<!--            <label>Password</label>-->
+<!--            <input type="password" class="form-control form-control-lg" id="password" name="password"  autocomplete="password"-->
+<!--                   placeholder="Password" required [(ngModel)]="model.password" #password='ngModel'>-->
+<!--            <div [hidden]="password.valid || password.pristine" class="alert alert-danger">-->
+<!--                Email is required-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <div class="form-group">-->
+<!--            <div>-->
+<!--                <input type="checkbox" id="remember_me" name="remember-me" [(ngModel)]="model.remembered">-->
+<!--                <label for="remember_me" class="inline">Remember me</label>-->
+<!--                <a class="float-right" routerLink="/register">Sign Up</a>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <div class="form-group">-->
+<!--            <button [disabled]="!form.form.valid" type="submit" class="btn btn-lg btn-primary btn-block">Sign In</button>-->
+<!--        </div>-->
+<!--    </form>-->
+
+
+<!--    <strong>Sample Users</strong>-->
+<!--    <table style="width: 100%;" id="sampleLoginTable">-->
+<!--        <tr>-->
+<!--            <td><a-->
+<!--                    (click)="fillLoginFields('customer1@email.com','123')"-->
+<!--                    href="javascript:void(0)">customer1</a></td>-->
+<!--            <td><a-->
+<!--                    (click)="fillLoginFields('employee1@email.com','123')"-->
+<!--                    href="javascript:void(0)">employee1</a></td>-->
+<!--            <td><a-->
+<!--                    (click)="fillLoginFields('manager1@email.com','123')"-->
+<!--                    href="javascript:void(0)">manager1</a></td>-->
+<!--        </tr>-->
+<!--    </table>-->
+
+<!--</div>-->
+
+
+<div class="account section" style="border-top: 1px solid #eee;">
+  <div class="container">
+
+    <div class="alert alert-danger" *ngIf="isInvalid">
+      Invalid username and password.
+    </div>
+    <div class="alert alert-info" *ngIf="isLogout">
+      You have been logged out.
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+        <div class="login-form border p-5">
+          <div class="text-center heading">
+            <h2 class="mb-2">Đăng nhập</h2>
+            <p class="lead">Bạn chưa có tài khoản? <a routerLink="/register" style="color: #f7941d">Đăng ký ngay !</a></p>
+          </div>
+          <form #form='ngForm' (ngSubmit)="onSubmit()">
+            <div class="form-group mb-4">
+              <label>Tài khoản email</label>
+              <input type="text" class="form-control" placeholder="Email" id="email" name="email"
+                     required autofocus [(ngModel)]="model.username" #email="ngModel" autocomplete="email">
+              <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+                Vui lòng nhập email
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Mật khẩu</label>
+<!--              <a class="float-right" href="">Forget password?</a>-->
+              <input  type="password" class="form-control" placeholder="Mật khẩu" id="password" name="password"  autocomplete="password"
+                      required [(ngModel)]="model.password" #password='ngModel'>
+              <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
+                Vui lòng nhập mật khẩu
+              </div>
+            </div>
+            <button type="submit" class="btn btn-main mt-5 btn-block">Đăng nhập</button>
+          </form>
+
+          <strong class="mt-3">Mẫu tài khoản</strong>
+          <table style="width: 100%;" id="sampleLoginTable">
+            <tr>
+              <td><a
+                (click)="fillLoginFields('customer1@email.com','123')"
+                href="javascript:void(0)">customer1</a></td>
+              <td><a
+                (click)="fillLoginFields('employee1@email.com','123')"
+                href="javascript:void(0)">employee1</a></td>
+              <td><a
+                (click)="fillLoginFields('manager1@email.com','123')"
+                href="javascript:void(0)">manager1</a></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

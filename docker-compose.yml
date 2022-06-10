@@ -1,0 +1,19 @@
+version: '2'
+services:
+  db:
+    image: postgres:9.4.5
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 0988853299LPT
+  backend:
+    build: backend/.
+    ports: 
+      - "7777:8080"
+    depends_on:
+      - db
+  frontend:
+    build: frontend/.
+    ports: 
+      - "4201:80"
+    depends_on: 
+      - backend
