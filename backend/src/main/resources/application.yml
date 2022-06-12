@@ -39,5 +39,5 @@ server:
   servlet:
     contextPath: /api
 
-jwtSecret: me.zhulin
+jwtSecret: backend.ktmtvm
 jwtExpiration: 86400
