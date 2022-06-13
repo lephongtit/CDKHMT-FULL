@@ -132,12 +132,16 @@
                           <li><a href="#">Phụ kiện</a></li>
                         </ul>
                       </li>
-                      <li><a routerLink="/page404">Product</a></li>
-                      <li><a routerLink="/page404">Service</a></li>
+                      <li *ngIf=" currentUser.role == Role.Manager"><a routerLink="/page404">Sản phẩm</a></li>
+                      <li *ngIf=" currentUser.role == Role.Manager"><a routerLink="/page404">Quản lý tài khoản</a></li>
+                      <li *ngIf=" currentUser.role == Role.Manager"><a routerLink="/page404">Đơn hàng</a></li>
+                      <li *ngIf=" currentUser.role == Role.Manager"><a routerLink="/page404">Thống kê</a></li>
+<!--                      <li><a routerLink="/page404">Service</a></li>-->
 
-                      <li><a routerLink="/page404">Pages</a></li>
+<!--                      <li><a routerLink="/page404">Pages</a></li>-->
                       <li><a routerLink="/page404">Blog</a></li>
                       <li><a routerLink="/page404">Contact Us</a></li>
+
                     </ul>
                   </div>
                 </div>
@@ -153,7 +157,7 @@
                 <a href="#"  class="single-icon"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
               </div>
               <div class="sinlge-bar shopping">
-                <a href="#"  class="single-icon"><i class="fa fa-shopping-bag"></i> <span class="total-count">2</span></a>
+                <a routerLink="/cart"  class="single-icon"><i class="fa fa-shopping-bag"></i> <span class="total-count">2</span></a>
                 <!-- Shopping Item -->
                 <div class="shopping-item">
                   <div class="dropdown-cart-header">
@@ -179,7 +183,7 @@
                       <span>Total</span>
                       <span class="total-amount">$134.00</span>
                     </div>
-                    <a href="#" class="btn animate">Checkout</a>
+                    <a routerLink="/cart" class="btn animate">Checkout</a>
                   </div>
                 </div>
                 <!--/ End Shopping Item -->
